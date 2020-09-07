@@ -1,0 +1,25 @@
+.end__wrapper {
+    grid-area: view;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(56, 13, 13);
+    transform: translateX(100vw);
+    animation: wrapper__animation 1.5s 0s ease both;
+}
+@keyframes wrapper__animation {
+    from {transform: translateX(100vw);}
+    to {transform: translateX(0);}
+}
+
+.end__text {
+    margin: 5vw;
+    margin-top: 10vw;
+    font-size: 8vw;
+    opacity: 0; 
+    transform: translateY(5vw);
+    animation: announcement__animation 2s 2s ease both;
+}
+@keyframes intro__animation {
+    to {opacity: 1; transform: translateY(0);}
+}

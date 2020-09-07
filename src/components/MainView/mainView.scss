@@ -1,0 +1,35 @@
+.main__wrapper {
+    grid-area: view;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(56, 27, 27);
+    transform: translateX(100vw);
+    animation: wrapper__animation 1.5s 0s ease both;
+}
+@keyframes wrapper__animation {
+    from {transform: translateX(100vw);}
+    to {transform: translateX(0);}
+}
+
+.main_calling_code__wrapper {
+    position: absolute;
+    text-align: center;
+    margin-left: 40vw;
+    margin-top: 5vw;
+    height: 20vh;
+    width: 20vh;
+    border: 50%;
+    background-color: wheat;
+}
+
+.main__intro {
+    margin: 5vw;
+    font-size: 8vw;
+    opacity: 0; 
+    transform: translateY(5vw);
+    animation: announcement__animation 2s 2s ease both;
+}
+@keyframes intro__animation {
+    to {opacity: 1; transform: translateY(0);}
+}

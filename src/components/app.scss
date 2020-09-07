@@ -1,0 +1,18 @@
+.view__wrapper {
+    width: 1920px;
+    height: 1080px;
+}
+
+.animated__wrapper {
+    position: absolute;
+    transform: translateX(100vw);
+    animation: wrapper__animation 1.5s 0s ease both;
+}
+@keyframes wrapper__animation {
+    from {transform: translateX(100vw);}
+    to {transform: translateX(0);}
+}
+.static__wrapper {
+    grid-area: view;
+    position: absolute;
+}
