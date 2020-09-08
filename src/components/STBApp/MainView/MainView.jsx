@@ -19,24 +19,30 @@ function MainView({ artistName, displayTime }) {
             setShouldAnimate('out');
         }, displayTime - 1000);
         return (
-            <div className="main__wrapper">
-                <div className="main_content__animation_in">
-                    <p className="main__text">
-                        {`Gefällt dir die Show? Dann spende ${artistName} doch etwas:`}
+            <div className="main__wrapper main_content__animation_in">
+                <div className="main__text">
+                    <p className="main__headline">
+                        Gefällt dir die Show?
                     </p>
-                    <div className="main_calling_code"/>
+                    <p>
+                        {`Dann spende ${artistName} doch etwas:`}
+                    </p>
                 </div>
+                <div className="main_calling_code" />
             </div>
         );
     }
     return (
-        <div className="main__wrapper">
-            <div className="main_content__animation_out">
-                <p className="main__text">
-                    {`Gefällt dir die Show? Dann spende ${artistName} doch etwas:`}
+        <div className="main__wrapper main_content__animation_out">
+            <div className="main__text">
+                <p className="main__headline">
+                    Gefällt dir die Show?
                 </p>
-                <div className="main_calling_code"/>
+                <p>
+                    {`Dann spende ${artistName} doch etwas:`}
+                </p>
             </div>
+            <div className="main_calling_code" />
         </div>
     );
 }

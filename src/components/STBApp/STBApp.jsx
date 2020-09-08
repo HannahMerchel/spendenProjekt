@@ -55,7 +55,7 @@ class STBApp extends PureComponent {
         const newView = (
             <StartView
                 artistName={currentArtist.name}
-                eventName="event-name"
+                eventName="Das Event"
                 displayTime="8000"
                 style={{ width: `${windowWidth}px`, height: `${windowHeight}px` }}
             />

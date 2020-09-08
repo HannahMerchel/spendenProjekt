@@ -6,13 +6,14 @@ import StartOverlay from './StartOverlay/StartOverlay.jsx';
 const propTypes = {
     artistName: PropTypes.string.isRequired,
     displayTime: PropTypes.number.isRequired,
+    eventName: PropTypes.string,
 };
 
 const defaultProps = {
+    eventName: 'Event',
 };
 
-// todo: add eventName
-function StartView({ artistName, displayTime }) {
+function StartView({ artistName, displayTime, eventName }) {
     const [shouldAnimate, setShouldAnimate] = useState('in');
     if (shouldAnimate === 'in') {
         setTimeout(() => {
@@ -20,7 +21,7 @@ function StartView({ artistName, displayTime }) {
         }, displayTime - 1500);
         return (
             <div className="start_animation_in__wrapper start__wrapper" style={{ height: '1080px', width: '1920px' }}>
-                <StartOverlay title="Event"/>
+                <StartOverlay title={eventName}/>
                 <p className="start__announcement">
                     {`Als nächstes kommt ${artistName}...`}
                 </p>
@@ -29,7 +30,7 @@ function StartView({ artistName, displayTime }) {
     }
     return (
         <div className="start_animation_out__wrapper start__wrapper" style={{ height: '1080px', width: '1920px' }}>
-            <StartOverlay title="Event"/>
+            <StartOverlay title={eventName}/>
             <p className="start__announcement">
                 {`Als nächstes kommt ${artistName}...`}
             </p>

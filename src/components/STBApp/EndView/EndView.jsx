@@ -22,7 +22,14 @@ function EndView({ sum, artistName, displayTime }) {
         return (
             <div className="end__wrapper">
                 <div className="end_content__animation_in">
-                    <p className="end__text">{`Vielen Dank allen für ${sum}€ \nfür ${artistName}`}</p>
+                    <div className="end__text">
+                        <p>
+                            {`Vielen Dank allen für ${sum}€`}
+                        </p>
+                        <p>
+                            {`für ${artistName}`}
+                        </p>
+                    </div>
                 </div>
             </div>
         );
@@ -30,7 +37,14 @@ function EndView({ sum, artistName, displayTime }) {
     return (
         <div className="end__wrapper">
             <div className="end_content__animation_out">
-                <p className="end__text">{`Vielen Dank allen für ${sum}€ für ${artistName}`}</p>
+                <div className="end__text">
+                    <p>
+                        {`Vielen Dank allen für ${sum}€`}
+                    </p>
+                    <p>
+                        {`für ${artistName}`}
+                    </p>
+                </div>
             </div>
         </div>
     );

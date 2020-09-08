@@ -3,14 +3,21 @@
     position: absolute;
     height: 1080px;
     width: 1920px;
+    display: grid;
+    grid-template-rows: 20vh 400px auto;
+    grid-template-columns: 20vh 1300px 600px 20vh;
+    grid-template-areas: 
+        ". . . ."
+        ". topLeft topRight ."
+        ". bottomLeft bottomRigth .";
 }
 
 .main_calling_code {
+    grid-area: topRight;
     text-align: center;
     position: absolute;
     color: black;
     text-align: center;
-    margin-left: 700px;
     margin-top: 5vw;
     height: 400px;
     width: 400px;
@@ -35,8 +42,14 @@
     to {opacity: 0; transform: translateY(-5vw);}
 }
 
-.main__text {
-    margin: 30vw;
-    margin-top: 15vw;
+.main__headline {
     font-size: 13vw;
+    position: relative;
+}
+.main__text {
+    grid-area: topLeft;
+    margin-top: 35vh;
+    margin-left: 15vw;
+    font-size: 10vw;
+    position: relative;
 }

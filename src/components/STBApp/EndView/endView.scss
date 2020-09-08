@@ -7,12 +7,11 @@
 
 .end__text {
     margin: 30vw;
-    font-size: 13vw;
+    font-size: 15vw;
+    text-align: center;
 }
 
 .end_content__animation_in {
-    margin: 30vw;
-    font-size: 13vw;
     opacity: 0; 
     transform: translateY(5vw);
     animation: in__animation 1s 0s ease both;
@@ -21,8 +20,6 @@
     to {opacity: 1; transform: translateY(0);}
 }
 .end_content__animation_out {
-    margin: 30vw;
-    font-size: 13vw;
     animation: out__animation 1s 0s ease both;
 }
 @keyframes out__animation {
