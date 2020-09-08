@@ -1,4 +1,4 @@
-import React, { PureComponent, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './endView.scss';
 
@@ -22,7 +22,7 @@ function EndView({ sum, artistName, displayTime }) {
         return (
             <div className="end__wrapper">
                 <div className="end_content__animation_in">
-                    <p className="end__text">{`Vielen Dank allen für ${sum}€ für ${artistName}`}</p>
+                    <p className="end__text">{`Vielen Dank allen für ${sum}€ \nfür ${artistName}`}</p>
                 </div>
             </div>
         );

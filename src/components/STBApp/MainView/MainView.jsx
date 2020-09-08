@@ -1,4 +1,4 @@
-import React, { PureComponent, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './mainView.scss';
 
@@ -11,7 +11,8 @@ const defaultProps = {
     artistName: 'diesem Künstler',
 };
 
-function MainView({ artistName, donations, displayTime }) {
+// todo: add donations
+function MainView({ artistName, displayTime }) {
     const [shouldAnimate, setShouldAnimate] = useState('in');
     if (shouldAnimate === 'in') {
         setTimeout(() => {
@@ -23,11 +24,8 @@ function MainView({ artistName, donations, displayTime }) {
                     <p className="main__text">
                         {`Gefällt dir die Show? Dann spende ${artistName} doch etwas:`}
                     </p>
-                    <div
-                        className="main_calling_code"
-                    />
+                    <div className="main_calling_code"/>
                 </div>
-
             </div>
         );
     }
@@ -37,11 +35,8 @@ function MainView({ artistName, donations, displayTime }) {
                 <p className="main__text">
                     {`Gefällt dir die Show? Dann spende ${artistName} doch etwas:`}
                 </p>
-                <div
-                    className="main_calling_code"
-                />
+                <div className="main_calling_code"/>
             </div>
-
         </div>
     );
 }

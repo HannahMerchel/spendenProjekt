@@ -13,6 +13,7 @@ class STBApp extends PureComponent {
             windowWidth: 1920,
             currentArtist: {
                 name: 'artist-name',
+                image: 'https://tsimg.cloud/75507-29107/69cc44645c67413e63c197884b06d2e37516e9dd_fwebp-h675-w1200.jpg',
                 startTime: new Date('September 7, 2020 9:00:00'),
                 endTime: new Date('September 7, 2020 10:00:00'),
             },
@@ -44,10 +45,8 @@ class STBApp extends PureComponent {
     }
 
     async switchView(newView) {
-        await this.setState((prevState) => {
-            return {
-                viewComponents: newView,
-            };
+        await this.setState({
+            viewComponents: newView,
         });
     }
 
@@ -71,18 +70,19 @@ class STBApp extends PureComponent {
             <MainView
                 donations={donations}
                 artistName={currentArtist.name}
-                displayTime="8000"
+                displayTime="12000"
                 style={{ width: `${windowWidth}px`, height: `${windowHeight}px` }}
             />
         );
         this.switchView(newView);
-        await setTimeout(() => this.showEndView(), 8000);
+        await setTimeout(() => this.showEndView(), 12000);
     }
 
     async showEndView() {
         const { currentArtist, donations, windowHeight, windowWidth } = this.state;
         const newView = (
-            <EndView donations={donations}
+            <EndView
+                donations={donations}
                 artistName={currentArtist.name}
                 displayTime="4000"
                 style={{ width: `${windowWidth}px`, height: `${windowHeight}px` }}
@@ -93,10 +93,10 @@ class STBApp extends PureComponent {
     }
 
     render() {
-        const { viewComponents, windowHeight } = this.state;
+        const { viewComponents } = this.state;
         return (
             <div>
-                <div className="view__wrapper" style={{ width: `${(windowHeight / 9) * 16}px`, height: `${windowHeight}px` }}>
+                <div className="view__wrapper">
                     <video
                         className="video__background"
                         poster="https://video.tsimg.space/75507-21103/714d16a5-df16-403f-b6d5-89486f49e216.jpg"

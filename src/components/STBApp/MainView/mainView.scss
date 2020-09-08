@@ -21,7 +21,7 @@
 .main_content__animation_in {
     opacity: 0; 
     transform: translateY(5vw);
-    animation: content__animation_in 1s 0.5s ease both;
+    animation: content__animation_in 1s 0s ease both;
 }
 @keyframes content__animation_in {
     to {opacity: 1; transform: translateY(0);}

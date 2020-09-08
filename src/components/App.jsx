@@ -5,14 +5,14 @@ import MobileApp from './MobileApp/MobileApp.jsx';
 
 class App extends PureComponent {
     render() {
-        if (true || chayns.env && chayns.env.isAndroid && chayns.env.isApp && chayns.env.isDesktop && chayns.env.isTablet) {
+        if (chayns.env && chayns.env.isAndroid && chayns.env.isApp && chayns.env.isDesktop && chayns.env.isTablet) {
             return (
                 <div>
-                    <STBApp />
+                    <STBApp/>
                 </div>
             );
         }
-        return <MobileApp />
+        return <MobileApp/>;
     }
 }
 export default App;

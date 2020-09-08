@@ -1,24 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './startView.scss';
+import StartOverlay from './StartOverlay/StartOverlay.jsx';
 
 const propTypes = {
     artistName: PropTypes.string.isRequired,
-    eventName: PropTypes.string.isRequired,
     displayTime: PropTypes.number.isRequired,
 };
 
 const defaultProps = {
 };
 
-function StartView({ artistName, eventName, displayTime }) {
+// todo: add eventName
+function StartView({ artistName, displayTime }) {
     const [shouldAnimate, setShouldAnimate] = useState('in');
     if (shouldAnimate === 'in') {
         setTimeout(() => {
             setShouldAnimate('out');
-        }, displayTime - 2500);
+        }, displayTime - 1500);
         return (
-            <div className="start_animation_in__wrapper" style={{ height: '1080px', width: '1920px' }}>
+            <div className="start_animation_in__wrapper start__wrapper" style={{ height: '1080px', width: '1920px' }}>
+                <StartOverlay title="Event"/>
                 <p className="start__announcement">
                     {`Als nächstes kommt ${artistName}...`}
                 </p>
@@ -26,7 +28,8 @@ function StartView({ artistName, eventName, displayTime }) {
         );
     }
     return (
-        <div className="start_animation_out__wrapper" style={{ height: '1080px', width: '1920px' }}>
+        <div className="start_animation_out__wrapper start__wrapper" style={{ height: '1080px', width: '1920px' }}>
+            <StartOverlay title="Event"/>
             <p className="start__announcement">
                 {`Als nächstes kommt ${artistName}...`}
             </p>

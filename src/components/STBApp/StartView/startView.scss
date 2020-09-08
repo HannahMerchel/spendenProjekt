@@ -8,28 +8,14 @@
     grid-template-areas: "." "announcement";
 }
 .start_animation_in__wrapper {
-    grid-area: view;
-    position: absolute;
-    background-color: rgb(61, 60, 60);
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 60% auto;
-    grid-template-areas: "." "announcement";
     transform: translateX(1920px);
     animation: wrapper__animation_in 1.5s 0s ease both;
 }
 @keyframes wrapper__animation_in {
-    from {transform: translateX(1920px);}
-    to {transform: translateX(0);}
+    from {transform: translateX(1920px) skewX(10deg); background-color: rgb(61, 60, 60);}
+    to {transform: translateX(0) skewX(0deg); background-color: rgb(53, 52, 52);}
 }
 .start_animation_out__wrapper {
-    grid-area: view;
-    position: absolute;
-    background-color: rgb(61, 60, 60);
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 60% auto;
-    grid-template-areas: "." "announcement";
     animation: wrapper__animation_out 1.5s 0s ease both;
 }
 @keyframes wrapper__animation_out {
