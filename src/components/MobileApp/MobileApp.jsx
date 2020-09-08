@@ -8,70 +8,72 @@ class MobileApp extends PureComponent {
     constructor() {
         super();
         this.state = {
-            userName: 'Maik',
             artistName: 'Picasso',
             donationValue: 0,
 
         };
         this.sendDonation = this.sendDonation.bind(this);
         this.changeDonationValue = this.changeDonationValue.bind(this);
-    }
-
-    // sets the firstname of the user to the welcome sentence.
-    componentDidMount() {
-        this.setState({
-            userName: chayns.env.user.firstName,
-        });
+        this.addDonation = this.addDonation.bind(this);
     }
 
     // sends the Donation to the artist. On clicking at the button 'OK'.
     sendDonation() {
         const { donationValue } = this.state;
-
-        chayns.dialog.alert('', 'Danke für deine Spende!');
-        if (donationValue === 0) {
-            chayns.dialog.alert('', 'Geben Sie bitte einen Betrag ein.');
-            document.querySelector('.donationInput').value = '';
+        if (donationValue !== 0) {
+            chayns.dialog.alert('', 'Danke für deine Spende!');
         }
     }
 
     // get the value from the input and checks if the input is a digit.
     changeDonationValue(event) {
-        const re = /\d*/g;
-
-        // const matcharr = ...event.match(re); <---------
-        // document.querySelector('.donationInput').value = ;
-        if (re.test(event)) {
+        const { donationValue } = this.state;
+        const donation = event.substring(event.length - 1, event.length);
+        const donationQuery = document.querySelector('.donationInput').value;
+        this.setState({
+            donationValue: donationValue + +donation,
+        });
+        if (donationQuery === '') {
             this.setState({
-                donationValue: event,
+                donationValue: 0,
             });
         }
-        // console.log(event.match(re));
+    }
+
+    addDonation(donation) {
+        const donationQuery = document.querySelector('.donationInput').value;
+        document.querySelector('.donationInput').value = Number(donationQuery) + Number(donation);
+        this.setState((prevState) => ({
+            donationValue: prevState.donationValue + +donation,
+        }));
     }
 
     render() {
-        const { userName, artistName, donationValue } = this.state;
+        const { artistName } = this.state;
         return (
-            <div>
-                <h1>
-                    {`Hallo ${userName}!`}
-                </h1>
-                <h2>
+            <div className="content__card">
+                <h2 className="text">
                     {`Wie viel möchtest du an ${artistName} spenden?`}
                 </h2>
                 <div className="donationValues">
-                    <button className="button btn" type="button" onClick={() => console.log('5€')}>
+                    <button className="button btn" type="button" onClick={() => this.addDonation(1)}>
+                        1€
+                    </button>
+                    <button className="button btn" type="button" onClick={() => this.addDonation(2)}>
+                        2€
+                    </button>
+                    <button className="button btn" type="button" onClick={() => this.addDonation(5)}>
                         5€
                     </button>
-                    <button className="button btn" type="button" onClick={() => console.log('10€')}>
-                        10€
+                    <button className="button btn" type="button" onClick={() => this.addDonation(50)}>
+                        50€
                     </button>
-                    <Input type={Number} className="donationInput" onChange={(event) => this.changeDonationValue(event)} placeholder="Betrag" />
+                    <Input type="number" className="donationInput" onChange={(event) => this.changeDonationValue(event)} placeholder="Betrag"/>
                     <button className="button btn" type="button" onClick={this.sendDonation}>
                         Ok
                     </button>
                 </div>
-                <p>{donationValue}</p>
+                {/* <p>{donationValue}</p> */}
             </div>
         );
     }

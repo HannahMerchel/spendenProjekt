@@ -1,11 +1,18 @@
+.content__card{
+    padding: 20px ;
+}
+.text{
+    /* text-align: center; */
+}
 .donationValues {
     margin: 0 auto;
-    width: 50%;
+    width: 90%;
     display: flex;
 }
 .btn {
-    width: 100px;
-    margin: 0 5px;
+    width: 200px;
+    margin: 10px 7px;
+    text-align: center;
 }
 .Betrag {
     margin: 0 5px;
