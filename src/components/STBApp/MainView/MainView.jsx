@@ -10,15 +10,18 @@ const defaultProps = {
     artistName: 'diesem Künstler',
 };
 
-function MainView({artistName, donations}) {
+function MainView({ artistName, donations }) {
     return (
         <div className="main__wrapper">
-            <p className="main__intro">
-                {`Gefällt dir die Show? Dann spende ${artistName} doch etwas:`}
-            </p>
-            <div className="main_calling_code__wrapper">
-                <p> callingCode </p>
+            <div className="main__content">
+                <p className="main__text">
+                    {`Gefällt dir die Show? Dann spende ${artistName} doch etwas:`}
+                </p>
+                <div className="main_calling_code__wrapper">
+                    <p> callingCode </p>
+                </div>
             </div>
+
         </div>
     );
 }

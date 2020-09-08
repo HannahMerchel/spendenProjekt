@@ -3,6 +3,12 @@
     position: absolute;
     height: 100%;
     width: 100%;
+}
+.main_animated__wrapper {
+    grid-area: view;
+    position: absolute;
+    height: 100%;
+    width: 100%;
     background-color: rgb(56, 27, 27);
     transform: translateX(100vw);
     animation: wrapper__animation 1.5s 0s ease both;
@@ -17,19 +23,22 @@
     text-align: center;
     margin-left: 40vw;
     margin-top: 5vw;
-    height: 20vh;
-    width: 20vh;
-    border: 50%;
-    background-color: wheat;
+    height: 25vh;
+    width: 25vh;
+    border-radius: 50%;
+    background-color: white;
 }
 
-.main__intro {
-    margin: 5vw;
-    font-size: 8vw;
+.main__content {
     opacity: 0; 
     transform: translateY(5vw);
-    animation: announcement__animation 2s 2s ease both;
+    animation: content__animation 2s 2s ease both;
 }
-@keyframes intro__animation {
+@keyframes content__animation {
     to {opacity: 1; transform: translateY(0);}
+}
+
+.main__text {
+    margin: 5vw;
+    font-size: 8vw;
 }

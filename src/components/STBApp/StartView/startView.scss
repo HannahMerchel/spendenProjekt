@@ -4,6 +4,13 @@
     height: 100%;
     width: 100%;
     background-color: rgb(61, 60, 60);
+}
+.start_animated__wrapper {
+    grid-area: view;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(61, 60, 60);
     transform: translateX(100vw);
     animation: wrapper__animation 1.5s 0s ease both;
 }

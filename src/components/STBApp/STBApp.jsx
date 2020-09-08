@@ -1,11 +1,11 @@
 import { hot } from 'react-hot-loader/root';
 import React, { PureComponent } from 'react';
-import './app.scss';
+import './STBapp.scss';
 import StartView from './StartView/StartView.jsx';
 import MainView from './MainView/MainView.jsx';
 import EndView from './EndView/EndView.jsx';
 
-class App extends PureComponent {
+class STBApp extends PureComponent {
     constructor() {
         super();
         this.state = {
@@ -124,5 +124,5 @@ class App extends PureComponent {
     }
 }
 
-export default App;
-export const HotApp = hot(App);
+export default STBApp;
+export const STBHotApp = hot(STBApp);
