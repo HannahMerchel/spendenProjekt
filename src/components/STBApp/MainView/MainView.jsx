@@ -4,22 +4,42 @@ import './mainView.scss';
 
 const propTypes = {
     artistName: PropTypes.string,
+    displayTime: PropTypes.number.isRequired,
 };
 
 const defaultProps = {
     artistName: 'diesem Künstler',
 };
 
-function MainView({ artistName, donations }) {
+function MainView({ artistName, donations, displayTime }) {
+    const [shouldAnimate, setShouldAnimate] = useState('in');
+    if (shouldAnimate === 'in') {
+        setTimeout(() => {
+            setShouldAnimate('out');
+        }, displayTime - 1000);
+        return (
+            <div className="main__wrapper">
+                <div className="main_content__animation_in">
+                    <p className="main__text">
+                        {`Gefällt dir die Show? Dann spende ${artistName} doch etwas:`}
+                    </p>
+                    <div
+                        className="main_calling_code"
+                    />
+                </div>
+
+            </div>
+        );
+    }
     return (
         <div className="main__wrapper">
-            <div className="main__content">
+            <div className="main_content__animation_out">
                 <p className="main__text">
                     {`Gefällt dir die Show? Dann spende ${artistName} doch etwas:`}
                 </p>
-                <div className="main_calling_code__wrapper">
-                    <p> callingCode </p>
-                </div>
+                <div
+                    className="main_calling_code"
+                />
             </div>
 
         </div>

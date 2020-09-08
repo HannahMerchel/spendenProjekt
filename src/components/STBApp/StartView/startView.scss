@@ -1,36 +1,49 @@
 .start__wrapper {
     grid-area: view;
     position: absolute;
-    height: 200vh;
-    width: 200vw;
     background-color: rgb(61, 60, 60);
-}
-.start_animated__wrapper {
-    grid-area: view;
-    position: absolute;
-    height: 200vh;
-    width: 200vw;
-    background-color: rgb(61, 60, 60);
-}
-@keyframes wrapper__animation {
-    from {transform: translateX(200vw);}
-    to {transform: translateX(0);}
-}
-
-.start_announcement__wrapper {
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 70% 30%;
+    grid-template-rows: 60% auto;
     grid-template-areas: "." "announcement";
+}
+.start_animation_in__wrapper {
+    grid-area: view;
+    position: absolute;
+    background-color: rgb(61, 60, 60);
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 60% auto;
+    grid-template-areas: "." "announcement";
+    transform: translateX(1920px);
+    animation: wrapper__animation_in 1.5s 0s ease both;
+}
+@keyframes wrapper__animation_in {
+    from {transform: translateX(1920px);}
+    to {transform: translateX(0);}
+}
+.start_animation_out__wrapper {
+    grid-area: view;
+    position: absolute;
+    background-color: rgb(61, 60, 60);
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 60% auto;
+    grid-template-areas: "." "announcement";
+    animation: wrapper__animation_out 1.5s 0s ease both;
+}
+@keyframes wrapper__animation_out {
+    from {opacity: 1;}
+    to {opacity: 0;}
 }
 
 .start__announcement {
     grid-area: announcement;
-    margin: 15vw;
-    font-size: 8vw;
+    margin: 30vw;
+    font-size: 13vw;
     opacity: 0; 
     transform: translateY(5vw);
-    animation: announcement__animation 2s 2s ease both;
+    animation: announcement__animation 2s 1s ease both;
 }
 
 @keyframes announcement__animation {

@@ -1,44 +1,42 @@
 .main__wrapper {
     grid-area: view;
     position: absolute;
-    height: 200vh;
-    width: 200vw;
-}
-.main_animated__wrapper {
-    grid-area: view;
-    position: absolute;
-    height: 200vh;
-    width: 200vw;
-    background-color: rgb(56, 27, 27);
-    transform: translateX(100vw);
-    animation: wrapper__animation 1.5s 0s ease both;
-}
-@keyframes wrapper__animation {
-    from {transform: translateX(100vw);}
-    to {transform: translateX(0);}
+    height: 1080px;
+    width: 1920px;
 }
 
-.main_calling_code__wrapper {
-    position: absolute;
+.main_calling_code {
     text-align: center;
-    margin-left: 40vw;
+    position: absolute;
+    color: black;
+    text-align: center;
+    margin-left: 700px;
     margin-top: 5vw;
-    height: 25vh;
-    width: 25vh;
-    border-radius: 50%;
-    background-color: white;
+    height: 400px;
+    width: 400px;
+    background-image: url("https://imgur.com/tY5YpSo.png");
+    background-size: cover;
 }
 
-.main__content {
+.main_content__animation_in {
     opacity: 0; 
     transform: translateY(5vw);
-    animation: content__animation 2s 2s ease both;
+    animation: content__animation_in 1s 0.5s ease both;
 }
-@keyframes content__animation {
+@keyframes content__animation_in {
     to {opacity: 1; transform: translateY(0);}
+}
+.main_content__animation_out {
+    opacity: 1;
+    animation: content__animation_out 1s 0s ease both;
+}
+@keyframes content__animation_out {
+    from {opacity: 1; transform: translateY(0);}
+    to {opacity: 0; transform: translateY(-5vw);}
 }
 
 .main__text {
-    margin: 15vw;
-    font-size: 8vw;
+    margin: 30vw;
+    margin-top: 15vw;
+    font-size: 13vw;
 }

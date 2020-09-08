@@ -5,23 +5,31 @@ import './startView.scss';
 const propTypes = {
     artistName: PropTypes.string.isRequired,
     eventName: PropTypes.string.isRequired,
+    displayTime: PropTypes.number.isRequired,
 };
 
 const defaultProps = {
 };
 
-function StartView({ artistName, eventName }) {
-    const [ shouldAnimate, setShouldAnimate ] = useState(true);
-    setTimeout(() => { useEffect(() => {
-        setShouldAnimate(true);
-    }); }, 1500);
-    return (
-        <div className={shouldAnimate === true ? 'start_animated__wrapper' : 'start__wrapper'}>
-            <div className="start_announcement__wrapper">
+function StartView({ artistName, eventName, displayTime }) {
+    const [shouldAnimate, setShouldAnimate] = useState('in');
+    if (shouldAnimate === 'in') {
+        setTimeout(() => {
+            setShouldAnimate('out');
+        }, displayTime - 2500);
+        return (
+            <div className="start_animation_in__wrapper" style={{ height: '1080px', width: '1920px' }}>
                 <p className="start__announcement">
                     {`Als nächstes kommt ${artistName}...`}
                 </p>
             </div>
+        );
+    }
+    return (
+        <div className="start_animation_out__wrapper" style={{ height: '1080px', width: '1920px' }}>
+            <p className="start__announcement">
+                {`Als nächstes kommt ${artistName}...`}
+            </p>
         </div>
     );
 }

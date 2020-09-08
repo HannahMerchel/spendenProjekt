@@ -5,7 +5,7 @@ import MobileApp from './MobileApp/MobileApp.jsx';
 
 class App extends PureComponent {
     render() {
-        if (chayns.env && chayns.env.isAndroid && chayns.env.isApp && chayns.env.isDesktop && chayns.env.isTablet) {
+        if (true || chayns.env && chayns.env.isAndroid && chayns.env.isApp && chayns.env.isDesktop && chayns.env.isTablet) {
             return (
                 <div>
                     <STBApp />
