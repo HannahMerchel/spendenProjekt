@@ -1,34 +1,32 @@
 .start__wrapper {
     grid-area: view;
     position: absolute;
-    height: 100%;
-    width: 100%;
+    height: 200vh;
+    width: 200vw;
     background-color: rgb(61, 60, 60);
 }
 .start_animated__wrapper {
     grid-area: view;
     position: absolute;
-    height: 100%;
-    width: 100%;
+    height: 200vh;
+    width: 200vw;
     background-color: rgb(61, 60, 60);
-    transform: translateX(100vw);
-    animation: wrapper__animation 1.5s 0s ease both;
 }
 @keyframes wrapper__animation {
-    from {transform: translateX(100vw);}
+    from {transform: translateX(200vw);}
     to {transform: translateX(0);}
 }
 
 .start_announcement__wrapper {
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 70vw 30vw;
+    grid-template-rows: 70% 30%;
     grid-template-areas: "." "announcement";
 }
 
 .start__announcement {
     grid-area: announcement;
-    margin-left: 5vw;
+    margin: 15vw;
     font-size: 8vw;
     opacity: 0; 
     transform: translateY(5vw);

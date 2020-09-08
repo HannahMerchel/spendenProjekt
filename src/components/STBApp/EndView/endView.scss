@@ -1,14 +1,14 @@
 .end__wrapper {
     grid-area: view;
     position: absolute;
-    height: 100%;
-    width: 100%;
+    height: 200vh;
+    width: 200vw;
 }
 .end_animated__wrapper {
     grid-area: view;
     position: absolute;
-    height: 100%;
-    width: 100%;
+    height: 200vh;
+    width: 200vw;
     background-color: rgb(56, 13, 13);
     transform: translateX(100vw);
     animation: wrapper__animation 1.5s 0s ease both;
@@ -19,8 +19,7 @@
 }
 
 .end__text {
-    margin: 5vw;
-    margin-top: 10vw;
+    margin: 15vw;
     font-size: 8vw;
     opacity: 0; 
     transform: translateY(5vw);

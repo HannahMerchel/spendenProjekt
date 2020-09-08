@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './startView.scss';
 
 const propTypes = {
-    name: PropTypes.string.isRequired,
+    artistName: PropTypes.string.isRequired,
+    eventName: PropTypes.string.isRequired,
 };
 
 const defaultProps = {
 };
 
-function StartView({ name }) {
+function StartView({ artistName, eventName }) {
+    const [ shouldAnimate, setShouldAnimate ] = useState(true);
+    setTimeout(() => { useEffect(() => {
+        setShouldAnimate(true);
+    }); }, 1500);
     return (
-        <div className="start__wrapper">
+        <div className={shouldAnimate === true ? 'start_animated__wrapper' : 'start__wrapper'}>
             <div className="start_announcement__wrapper">
                 <p className="start__announcement">
-                    {`Als nächstes kommt ${name}...`}
+                    {`Als nächstes kommt ${artistName}...`}
                 </p>
             </div>
         </div>

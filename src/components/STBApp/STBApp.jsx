@@ -9,6 +9,7 @@ class STBApp extends PureComponent {
     constructor() {
         super();
         this.state = {
+            windowHeight: 1080,
             currentArtist: {
                 name: 'artist-name',
                 startTime: new Date('September 7, 2020 9:00:00'),
@@ -32,60 +33,25 @@ class STBApp extends PureComponent {
                 }
             ]
         };
-        this.getNextArtist = this.getNextArtist.bind(this);
-        this.getProgram = this.getProgram.bind(this);
         this.showStartView = this.showStartView.bind(this);
         this.showMainView = this.showMainView.bind(this);
         this.switchView = this.switchView.bind(this);
     }
 
-    async componentDidMount() {
-        // get program
-        this.getProgram();
-    }
-
-    async getProgram() {
-        await this.setState({
-            program: {
-                artists: [
-                    {
-                        name: '0artist-name',
-                        startTime: new Date('September 7, 2020 9:00:00'),
-                        endTime: new Date('September 7, 2020 10:00:00'),
-                    },
-                    {
-                        name: '1artist-name',
-                        startTime: new Date('September 7, 2020 10:00:00'),
-                        endTime: new Date('September 7, 2020 11:00:00'),
-                    },
-                    {
-                        name: '2artist-name',
-                        startTime: new Date('September 7, 2020 11:00:00'),
-                        endTime: new Date('September 7, 2020 12:00:00'),
-                    },
-                    {
-                        name: '3artist-name',
-                        startTime: new Date('September 7, 2020 12:00:00'),
-                        endTime: new Date('September 7, 2020 13:00:00'),
-                    },
-                ],
-            },
-        });
-        this.getNextArtist();
-    }
-
-    async getNextArtist() {
-        await this.setState((prevState) => {
-            let index = 0;
-            while (index < 3 && prevState.program.artists[index].startTime < new Date() && prevState.program.artists[index].endTime < new Date()) {
-                index++;
-            }
-            return {
-                currentArtist: prevState.program.artists[index],
-            };
-        });
+    componentDidMount() {
         this.showStartView();
+        this.useWindowHeight();
     }
+
+    useWindowHeight() {
+        const { windowHeight } = this.state;
+        const retVal = chayns.addWindowMetricsListener((e) => {
+            if (e !== windowHeight) {
+                this.setState({ windowHeight: e });
+            }
+        }, true);
+        return () => chayns.removeWindowMetricsListener(retVal);
+    };
 
     async switchView(newView) {
         await this.setState((prevState) => {
@@ -96,29 +62,57 @@ class STBApp extends PureComponent {
     }
 
     async showStartView() {
-        const { currentArtist } = this.state;
-        const newView = (<StartView name={currentArtist.name}/>);
+        const { currentArtist, windowHeight } = this.state;
+        const newView = (
+            <StartView
+                artistName={currentArtist.name}
+                style={{ width: `${(windowHeight / 9) * 16}px`, height: `${windowHeight}px` }}
+            />
+        );
         this.switchView(newView);
-        await setTimeout(() => this.showMainView(), 4000);
+        await setTimeout(() => this.showMainView(), 8000);
     }
 
     async showMainView() {
-        const newView = (<MainView donations={this.state.donations} artistName={this.state.currentArtist.name}/>);
+        const { currentArtist, donations, windowHeight } = this.state;
+        const newView = (
+            <MainView
+                donations={donations}
+                artistName={currentArtist.name}
+                style={{ width: `${(windowHeight / 9) * 16}px`, height: `${windowHeight}px` }}
+            />
+        );
         this.switchView(newView);
-        await setTimeout(() => this.showEndView(), 4000);
+        await setTimeout(() => this.showEndView(), 10000);
     }
 
     async showEndView() {
-        const newView = (<EndView donations={this.state.donations} artistName={this.state.currentArtist.name}/>);
+        const { currentArtist, donations, windowHeight } = this.state;
+        const newView = (
+            <EndView donations={donations}
+                artistName={currentArtist.name}
+                style={{ width: `${(windowHeight / 9) * 16}px`, height: `${windowHeight}px` }}
+            />
+        );
         this.switchView(newView);
         await setTimeout(() => this.showStartView(), 4000);
     }
 
     render() {
-        const { viewComponents } = this.state;
+        const { viewComponents, windowHeight } = this.state;
         return (
-            <div className="view__wrapper" style={{ width: '1920px', height: '1080px' }}>
-                {viewComponents}
+            <div>
+                <div className="view__wrapper" style={{ width: `${(windowHeight / 9) * 16}px`, height: `${windowHeight}px` }}>
+                    <video
+                        className="video__background"
+                        poster="https://video.tsimg.space/75507-21103/714d16a5-df16-403f-b6d5-89486f49e216.jpg"
+                        playsInline="" src="https://video.tsimg.space/75507-21103/714d16a5-df16-403f-b6d5-89486f49e216.mp4"
+                        autoPlay=""
+                        muted=""
+                        loop=""
+                    />
+                    {viewComponents}
+                </div>
             </div>
         );
     }
