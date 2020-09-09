@@ -1,18 +1,13 @@
 .view__wrapper {
-    width: 100vw;
-    height: 100vh;
+    width: 1920px;
+    height: 1080px;
 }
 
-.animated__wrapper {
-    position: absolute;
-    transform: translateX(100vw);
-    animation: wrapper__animation 1.5s 0s ease both;
-}
-@keyframes wrapper__animation {
-    from {transform: translateX(100vw);}
-    to {transform: translateX(0);}
-}
-.static__wrapper {
+.video__background {
     grid-area: view;
     position: absolute;
+    filter: blur(6px) brightness(0.3) saturate(2.02);
+    size: 200%;
+    height: 1080px;
+    width: 1920px;
 }

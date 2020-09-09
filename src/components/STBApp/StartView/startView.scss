@@ -1,38 +1,42 @@
 .start__wrapper {
     grid-area: view;
+    height: 1080px;
+    width: 1920px;
+    background-size: cover;
     position: absolute;
-    height: 100%;
-    width: 100%;
     background-color: rgb(61, 60, 60);
+    display: grid;
+    grid-template-columns: 1920px;
+    grid-template-rows: 500px 700px;
+    grid-template-areas: "." "announcement";
 }
-.start_animated__wrapper {
-    grid-area: view;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: rgb(61, 60, 60);
-    transform: translateX(100vw);
-    animation: wrapper__animation 1.5s 0s ease both;
+.start_enter__animation {
+    transform: translateX(1920px);
+    animation: wrapper__animation_in 1.5s 0s ease both;
 }
-@keyframes wrapper__animation {
-    from {transform: translateX(100vw);}
-    to {transform: translateX(0);}
+@keyframes wrapper__animation_in {
+    from {transform: translateX(1920px) skewX(10deg); background-color: rgb(61, 60, 60);}
+    to {transform: translateX(0) skewX(0deg); background-color: rgb(53, 52, 52);}
+}
+.start_leave__animation {
+    animation: wrapper__animation_out 1.5s 0s ease both;
+}
+@keyframes wrapper__animation_out {
+    from {opacity: 1;}
+    to {opacity: 0;}
 }
 
 .start_announcement__wrapper {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 70vw 30vw;
-    grid-template-areas: "." "announcement";
-}
-
-.start__announcement {
     grid-area: announcement;
-    margin-left: 5vw;
-    font-size: 8vw;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+.start__announcement {
+    margin-left: 250px;
+    margin-top: 350px;
+    font-size: 13vw;
     opacity: 0; 
     transform: translateY(5vw);
-    animation: announcement__animation 2s 2s ease both;
+    animation: announcement__animation 2s 1s ease both;
 }
 
 @keyframes announcement__animation {

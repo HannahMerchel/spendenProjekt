@@ -1,44 +1,67 @@
 .main__wrapper {
     grid-area: view;
     position: absolute;
-    height: 100%;
-    width: 100%;
-}
-.main_animated__wrapper {
-    grid-area: view;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: rgb(56, 27, 27);
-    transform: translateX(100vw);
-    animation: wrapper__animation 1.5s 0s ease both;
-}
-@keyframes wrapper__animation {
-    from {transform: translateX(100vw);}
-    to {transform: translateX(0);}
+    height: 1080px;
+    width: 1920px;
+    display: grid;
+    grid-template-rows: 10vh 425px 500px;
+    grid-template-columns: 45vw 850px 600px 20vw;
+    grid-template-areas: 
+        ". . . ."
+        ". intro intro ."
+        ". callingCode donations .";
 }
 
-.main_calling_code__wrapper {
-    position: absolute;
+.main_calling_code {
+    grid-area: callingCode;
     text-align: center;
-    margin-left: 40vw;
+    position: absolute;
+    color: black;
+    text-align: center;
     margin-top: 5vw;
-    height: 25vh;
-    width: 25vh;
-    border-radius: 50%;
-    background-color: white;
+    margin-left: 25vw;
+    height: 500px;
+    width: 500px;
+    background-image: url("https://imgur.com/tY5YpSo.png");
+    background-size: cover;
 }
 
-.main__content {
+.main_enter__animation {
     opacity: 0; 
     transform: translateY(5vw);
-    animation: content__animation 2s 2s ease both;
+    animation: content__animation_in 1s 0s ease both;
 }
-@keyframes content__animation {
+@keyframes content__animation_in {
     to {opacity: 1; transform: translateY(0);}
 }
+.main_leave__animation {
+    opacity: 1;
+    animation: content__animation_out 1s 0s ease both;
+}
+@keyframes content__animation_out {
+    from {opacity: 1; transform: translateY(0);}
+    to {opacity: 0; transform: translateY(-5vw);}
+}
 
+.main__headline {
+    font-size: 13vw;
+    position: relative;
+}
 .main__text {
-    margin: 5vw;
-    font-size: 8vw;
+    grid-area: intro;
+    margin-top: 35vh;
+    font-size: 13vw;
+    position: relative;
+}
+
+.main_donations {
+    grid-area: donations;
+    font-size: 13vw;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+}
+.main_donations__entry {
+    margin-left: 25vw;
+    font-size: 10vw;
 }

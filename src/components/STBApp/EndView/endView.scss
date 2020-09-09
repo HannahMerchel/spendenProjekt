@@ -1,31 +1,29 @@
 .end__wrapper {
     grid-area: view;
     position: absolute;
-    height: 100%;
-    width: 100%;
-}
-.end_animated__wrapper {
-    grid-area: view;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: rgb(56, 13, 13);
-    transform: translateX(100vw);
-    animation: wrapper__animation 1.5s 0s ease both;
-}
-@keyframes wrapper__animation {
-    from {transform: translateX(100vw);}
-    to {transform: translateX(0);}
+    height: 1080px;
+    width: 1920px;
 }
 
 .end__text {
-    margin: 5vw;
-    margin-top: 10vw;
-    font-size: 8vw;
+    margin: 30vw;
+    margin-top: 400px;
+    font-size: 15vw;
+    text-align: center;
+}
+
+.end_enter__animation {
     opacity: 0; 
     transform: translateY(5vw);
-    animation: announcement__animation 2s 2s ease both;
+    animation: in__animation 1s 0s ease both;
 }
-@keyframes intro__animation {
+@keyframes in__animation {
     to {opacity: 1; transform: translateY(0);}
+}
+.end_leave__animation {
+    animation: out__animation 1s 0s ease both;
+}
+@keyframes out__animation {
+    from {opacity: 1; transform: translateY(0);}
+    to {opacity: 0; transform: translateY(-5vw);}
 }

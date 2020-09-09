@@ -1,0 +1,47 @@
+.overlay {
+    opacity: 1;
+}
+
+.left_slice {
+    position: absolute;
+    height: 2000px;
+    width: 250px;
+    margin-top: -150px;
+    margin-left: 1850px;
+    background-color: white;
+    animation: left_slice__animation 1.5s ease 0s both;
+}
+@keyframes left_slice__animation{
+    from { width: 10px; transform: rotate(0deg) }
+    to { width: 250px; transform: rotate(-10deg) }
+}
+
+.event_title__wrapper {
+    position: absolute;
+    height: 220px;
+    width: 800px;
+    margin-top: 50px;
+    background-color: white;
+    animation: event_title_wrapper__animation 1.5s ease 1.5s both;
+}
+@keyframes event_title_wrapper__animation{
+    from { width: 0px; margin-left: 1920px }
+    to { width: 800px; margin-left: 1100px }
+}
+
+.event__title {
+    position: absolute;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 17vw;
+    padding-top: 9vh;
+    font-size: 15vw;
+    color: black;
+    opacity: 0; 
+    transform: translateY(5vw);
+    animation: title_animation 1s 1.5s ease both;
+}
+@keyframes title_animation {
+    to {opacity: 1; transform: translateY(0);}
+}

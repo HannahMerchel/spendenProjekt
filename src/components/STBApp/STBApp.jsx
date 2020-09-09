@@ -6,110 +6,81 @@ import MainView from './MainView/MainView.jsx';
 import EndView from './EndView/EndView.jsx';
 
 class STBApp extends PureComponent {
-    constructor() {
+    constructor(events) {
         super();
         this.state = {
-            currentArtist: {
-                name: 'artist-name',
-                startTime: new Date('September 7, 2020 9:00:00'),
-                endTime: new Date('September 7, 2020 10:00:00'),
-            },
-            donations: [
-                {
-                    firstName: 'firstname',
-                    lastName: 'lastName',
-                    amount: 5.00,
-                },
-                {
-                    firstName: 'firstname',
-                    lastName: 'lastName',
-                    amount: 5.00,
-                },
-                {
-                    firstName: 'firstname',
-                    lastName: 'lastName',
-                    amount: 5.00,
-                }
-            ]
+            windowHeight: 1080,
+            windowWidth: 1920,
+            event: events.events,
         };
-        this.getNextArtist = this.getNextArtist.bind(this);
-        this.getProgram = this.getProgram.bind(this);
         this.showStartView = this.showStartView.bind(this);
         this.showMainView = this.showMainView.bind(this);
         this.switchView = this.switchView.bind(this);
+        this.getCurrentShow = this.getCurrentShow.bind(this);
     }
 
-    async componentDidMount() {
-        // get program
-        this.getProgram();
+    componentDidMount() {
+        this.getCurrentShow();
     }
 
-    async getProgram() {
-        await this.setState({
-            program: {
-                artists: [
-                    {
-                        name: '0artist-name',
-                        startTime: new Date('September 7, 2020 9:00:00'),
-                        endTime: new Date('September 7, 2020 10:00:00'),
-                    },
-                    {
-                        name: '1artist-name',
-                        startTime: new Date('September 7, 2020 10:00:00'),
-                        endTime: new Date('September 7, 2020 11:00:00'),
-                    },
-                    {
-                        name: '2artist-name',
-                        startTime: new Date('September 7, 2020 11:00:00'),
-                        endTime: new Date('September 7, 2020 12:00:00'),
-                    },
-                    {
-                        name: '3artist-name',
-                        startTime: new Date('September 7, 2020 12:00:00'),
-                        endTime: new Date('September 7, 2020 13:00:00'),
-                    },
-                ],
-            },
-        });
-        this.getNextArtist();
-    }
-
-    async getNextArtist() {
+    async getCurrentShow() {
         await this.setState((prevState) => {
-            let index = 0;
-            while (index < 3 && prevState.program.artists[index].startTime < new Date() && prevState.program.artists[index].endTime < new Date()) {
-                index++;
-            }
             return {
-                currentArtist: prevState.program.artists[index],
-            };
+                currentShow: prevState.event.shows[0],
+            }
         });
         this.showStartView();
     }
 
     async switchView(newView) {
-        await this.setState((prevState) => {
-            return {
-                viewComponents: newView,
-            };
+        await this.setState({
+            viewComponents: newView,
         });
     }
 
     async showStartView() {
-        const { currentArtist } = this.state;
-        const newView = (<StartView name={currentArtist.name}/>);
+        const { event, currentShow, windowHeight, windowWidth } = this.state;
+        const newView = (
+            <StartView
+                artistName={currentShow.artistName}
+                eventName={event.eventName}
+                image={currentShow.artistImg}
+                displayTime={8000}
+                style={{ width: `${windowWidth}px`, height: `${windowHeight}px` }}
+            />
+        );
         this.switchView(newView);
-        await setTimeout(() => this.showMainView(), 4000);
+        await setTimeout(() => this.showMainView(), 8000);
     }
 
     async showMainView() {
-        const newView = (<MainView donations={this.state.donations} artistName={this.state.currentArtist.name}/>);
+        const { currentShow, windowHeight, windowWidth } = this.state;
+        const newView = (
+            <MainView
+                donations={currentShow.donations}
+                artistName={currentShow.artistName}
+                displayTime={12000}
+                style={{ width: `${windowWidth}px`, height: `${windowHeight}px` }}
+            />
+        );
         this.switchView(newView);
-        await setTimeout(() => this.showEndView(), 4000);
+        await setTimeout(() => this.showEndView(), 12000);
     }
 
     async showEndView() {
-        const newView = (<EndView donations={this.state.donations} artistName={this.state.currentArtist.name}/>);
+        const { currentShow, windowHeight, windowWidth } = this.state;
+        let donationsSum = 0;
+        currentShow.donations.forEach((entry) => {
+            donationsSum += entry.amount;
+        });
+        const newView = (
+            <EndView
+                sum={donationsSum}
+                artistName={currentShow.artistName}
+                displayTime={4000}
+                style={{ width: `${windowWidth}px`, height: `${windowHeight}px` }}
+            />
+        );
         this.switchView(newView);
         await setTimeout(() => this.showStartView(), 4000);
     }
@@ -117,8 +88,19 @@ class STBApp extends PureComponent {
     render() {
         const { viewComponents } = this.state;
         return (
-            <div className="view__wrapper" style={{ width: '1920px', height: '1080px' }}>
-                {viewComponents}
+            <div>
+                <div className="view__wrapper">
+                    <video
+                        className="video__background"
+                        poster="https://video.tsimg.space/75507-21103/714d16a5-df16-403f-b6d5-89486f49e216.jpg"
+                        playsInline
+                        src="https://video.tsimg.space/75507-21103/714d16a5-df16-403f-b6d5-89486f49e216.mp4"
+                        autoPlay
+                        muted
+                        loop
+                    />
+                    {viewComponents}
+                </div>
             </div>
         );
     }

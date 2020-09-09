@@ -1,10 +1,11 @@
-import React, { PureComponent } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './endView.scss';
 
 const propTypes = {
     sum: PropTypes.number,
     artistName: PropTypes.string,
+    displayTime: PropTypes.number.isRequired,
 };
 
 const defaultProps = {
@@ -12,10 +13,23 @@ const defaultProps = {
     artistName: 'diesen Künstler',
 };
 
-function EndView({sum, artistName}) {
+function EndView({ sum, artistName, displayTime }) {
+    const [shouldAnimate, setShouldAnimate] = useState('in');
+    if (shouldAnimate === 'in') {
+        setTimeout(() => {
+            setShouldAnimate('out');
+        }, displayTime - 1000);
+    }
     return (
-        <div className="end__wrapper">
-            <p className="end__text">{`Vielen Dank allen für ${sum}€ für ${artistName}`}</p>
+        <div className={`end__wrapper ${shouldAnimate === 'in' ? 'end_enter__animation' : 'end_leave__animation'}`}>
+            <div className="end__text">
+                <p>
+                    {`Vielen Dank allen für ${sum}€`}
+                </p>
+                <p>
+                    {`für ${artistName}`}
+                </p>
+            </div>
         </div>
     );
 }
