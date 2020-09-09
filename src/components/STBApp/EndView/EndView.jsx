@@ -19,32 +19,16 @@ function EndView({ sum, artistName, displayTime }) {
         setTimeout(() => {
             setShouldAnimate('out');
         }, displayTime - 1000);
-        return (
-            <div className="end__wrapper">
-                <div className="end_content__animation_in">
-                    <div className="end__text">
-                        <p>
-                            {`Vielen Dank allen für ${sum}€`}
-                        </p>
-                        <p>
-                            {`für ${artistName}`}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        );
     }
     return (
-        <div className="end__wrapper">
-            <div className="end_content__animation_out">
-                <div className="end__text">
-                    <p>
-                        {`Vielen Dank allen für ${sum}€`}
-                    </p>
-                    <p>
-                        {`für ${artistName}`}
-                    </p>
-                </div>
+        <div className={`end__wrapper ${shouldAnimate === 'in' ? 'end_enter__animation' : 'end_leave__animation'}`}>
+            <div className="end__text">
+                <p>
+                    {`Vielen Dank allen für ${sum}€`}
+                </p>
+                <p>
+                    {`für ${artistName}`}
+                </p>
             </div>
         </div>
     );
