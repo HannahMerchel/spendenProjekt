@@ -19,18 +19,27 @@ class STBApp extends PureComponent {
             },
             donations: [
                 {
-                    firstName: 'firstname',
-                    lastName: 'lastName',
+                    donator: 'Name',
                     amount: 5.00,
                 },
                 {
-                    firstName: 'firstname',
-                    lastName: 'lastName',
+                    donator: 'Name',
                     amount: 5.00,
                 },
                 {
-                    firstName: 'firstname',
-                    lastName: 'lastName',
+                    donator: 'Name',
+                    amount: 5.00,
+                },
+                {
+                    donator: 'Name',
+                    amount: 5.00,
+                },
+                {
+                    donator: 'Name',
+                    amount: 5.00,
+                },
+                {
+                    donator: 'Name',
                     amount: 5.00,
                 },
             ],
@@ -56,7 +65,7 @@ class STBApp extends PureComponent {
             <StartView
                 artistName={currentArtist.name}
                 eventName="Das Event"
-                displayTime="8000"
+                displayTime={8000}
                 style={{ width: `${windowWidth}px`, height: `${windowHeight}px` }}
             />
         );
@@ -70,7 +79,7 @@ class STBApp extends PureComponent {
             <MainView
                 donations={donations}
                 artistName={currentArtist.name}
-                displayTime="12000"
+                displayTime={12000}
                 style={{ width: `${windowWidth}px`, height: `${windowHeight}px` }}
             />
         );
@@ -84,7 +93,7 @@ class STBApp extends PureComponent {
             <EndView
                 donations={donations}
                 artistName={currentArtist.name}
-                displayTime="4000"
+                displayTime={4000}
                 style={{ width: `${windowWidth}px`, height: `${windowHeight}px` }}
             />
         );

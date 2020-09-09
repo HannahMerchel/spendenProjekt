@@ -4,12 +4,12 @@
     height: 1080px;
     width: 1920px;
     display: grid;
-    grid-template-rows: 20vh 400px 500px;
-    grid-template-columns: 20vh 1300px 600px 20vh;
+    grid-template-rows: 10vh 425px 500px;
+    grid-template-columns: 45vw 850px 600px 20vw;
     grid-template-areas: 
         ". . . ."
-        ". intro callingCode ."
-        ". donations donations .";
+        ". intro intro ."
+        ". callingCode donations .";
 }
 
 .main_calling_code {
@@ -19,8 +19,9 @@
     color: black;
     text-align: center;
     margin-top: 5vw;
-    height: 400px;
-    width: 400px;
+    margin-left: 25vw;
+    height: 500px;
+    width: 500px;
     background-image: url("https://imgur.com/tY5YpSo.png");
     background-size: cover;
 }
@@ -49,16 +50,18 @@
 .main__text {
     grid-area: intro;
     margin-top: 35vh;
-    margin-left: 15vw;
-    font-size: 10vw;
+    font-size: 13vw;
     position: relative;
 }
 
 .main_donations {
     grid-area: donations;
     font-size: 13vw;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
 }
 .main_donations__entry {
-    margin-left: 5vw;
+    margin-left: 25vw;
     font-size: 10vw;
 }
