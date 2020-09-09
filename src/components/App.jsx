@@ -13,7 +13,7 @@ class App extends PureComponent {
                 </div>
             );
         }
-        return <MobileApp/>;
+        return <MobileApp events={events}/>;
     }
 }
 export default App;

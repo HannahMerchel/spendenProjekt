@@ -4,9 +4,11 @@
 .text{
     /* text-align: center; */
 }
+.donationInput{
+    width: 100px
+}
 .donationValues {
     margin: 0 auto;
-    width: 90%;
     display: flex;
 }
 .btn {

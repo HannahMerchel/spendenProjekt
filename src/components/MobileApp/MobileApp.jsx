@@ -5,12 +5,11 @@ import './mobileApp.css';
 
 // mobile view change here.
 class MobileApp extends PureComponent {
-    constructor() {
+    constructor(events) {
         super();
         this.state = {
-            artistName: 'Picasso',
             donationValue: 0,
-
+            event: events.events,
         };
         this.sendDonation = this.sendDonation.bind(this);
         this.changeDonationValue = this.changeDonationValue.bind(this);
@@ -49,11 +48,11 @@ class MobileApp extends PureComponent {
     }
 
     render() {
-        const { artistName } = this.state;
+        const { event } = this.state;
         return (
             <div className="content__card">
                 <h2 className="text">
-                    {`Wie viel möchtest du an ${artistName} spenden?`}
+                    {`Wie viel möchtest du an ${event.shows[0].artistName} spenden?`}
                 </h2>
                 <div className="donationValues">
                     <button className="button btn" type="button" onClick={() => this.addDonation(1)}>
