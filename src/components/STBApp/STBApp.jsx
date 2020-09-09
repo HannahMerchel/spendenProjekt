@@ -6,50 +6,29 @@ import MainView from './MainView/MainView.jsx';
 import EndView from './EndView/EndView.jsx';
 
 class STBApp extends PureComponent {
-    constructor() {
+    constructor(events) {
         super();
         this.state = {
             windowHeight: 1080,
             windowWidth: 1920,
-            currentArtist: {
-                name: 'artist-name',
-                image: 'https://tsimg.cloud/75507-29107/69cc44645c67413e63c197884b06d2e37516e9dd_fwebp-h675-w1200.jpg',
-                startTime: new Date('September 7, 2020 9:00:00'),
-                endTime: new Date('September 7, 2020 10:00:00'),
-            },
-            donations: [
-                {
-                    donator: 'Name',
-                    amount: 5.00,
-                },
-                {
-                    donator: 'Name',
-                    amount: 5.00,
-                },
-                {
-                    donator: 'Name',
-                    amount: 5.00,
-                },
-                {
-                    donator: 'Name',
-                    amount: 5.00,
-                },
-                {
-                    donator: 'Name',
-                    amount: 5.00,
-                },
-                {
-                    donator: 'Name',
-                    amount: 5.00,
-                },
-            ],
+            event: events.events,
         };
         this.showStartView = this.showStartView.bind(this);
         this.showMainView = this.showMainView.bind(this);
         this.switchView = this.switchView.bind(this);
+        this.getCurrentShow = this.getCurrentShow.bind(this);
     }
 
     componentDidMount() {
+        this.getCurrentShow();
+    }
+
+    async getCurrentShow() {
+        await this.setState((prevState) => {
+            return {
+                currentShow: prevState.event.shows[0],
+            }
+        });
         this.showStartView();
     }
 
@@ -60,11 +39,12 @@ class STBApp extends PureComponent {
     }
 
     async showStartView() {
-        const { currentArtist, windowHeight, windowWidth } = this.state;
+        const { event, currentShow, windowHeight, windowWidth } = this.state;
         const newView = (
             <StartView
-                artistName={currentArtist.name}
-                eventName="Das Event"
+                artistName={currentShow.artistName}
+                eventName={event.eventName}
+                image={currentShow.artistImg}
                 displayTime={8000}
                 style={{ width: `${windowWidth}px`, height: `${windowHeight}px` }}
             />
@@ -74,11 +54,11 @@ class STBApp extends PureComponent {
     }
 
     async showMainView() {
-        const { currentArtist, donations, windowHeight, windowWidth } = this.state;
+        const { currentShow, windowHeight, windowWidth } = this.state;
         const newView = (
             <MainView
-                donations={donations}
-                artistName={currentArtist.name}
+                donations={currentShow.donations}
+                artistName={currentShow.artistName}
                 displayTime={12000}
                 style={{ width: `${windowWidth}px`, height: `${windowHeight}px` }}
             />
@@ -88,11 +68,15 @@ class STBApp extends PureComponent {
     }
 
     async showEndView() {
-        const { currentArtist, donations, windowHeight, windowWidth } = this.state;
+        const { currentShow, windowHeight, windowWidth } = this.state;
+        let donationsSum = 0;
+        currentShow.donations.forEach((entry) => {
+            donationsSum += entry.amount;
+        });
         const newView = (
             <EndView
-                donations={donations}
-                artistName={currentArtist.name}
+                sum={donationsSum}
+                artistName={currentShow.artistName}
                 displayTime={4000}
                 style={{ width: `${windowWidth}px`, height: `${windowHeight}px` }}
             />

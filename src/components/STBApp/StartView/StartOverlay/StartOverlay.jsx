@@ -16,7 +16,7 @@ function StartOverlay({ title }) {
             <div className="left_slice"/>
             <div className="event_title__wrapper">
                 <p className="event__title">
-                    {title}
+                    <b>{title}</b>
                 </p>
             </div>
         </div>
