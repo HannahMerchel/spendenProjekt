@@ -24,10 +24,13 @@ function EndView({ sum, artistName, displayTime }) {
         <div className={`end__wrapper ${shouldAnimate === 'in' ? 'end_enter__animation' : 'end_leave__animation'}`}>
             <div className="end__text">
                 <p>
-                    {`Vielen Dank allen für ${sum}€`}
+                    Vielen Dank allen für die
                 </p>
                 <p>
-                    {`für ${artistName}`}
+                    {`Spende von ${sum}€`}
+                </p>
+                <p>
+                    {`- ${artistName}`}
                 </p>
             </div>
         </div>
