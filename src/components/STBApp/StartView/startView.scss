@@ -1,5 +1,7 @@
 .start__wrapper {
     grid-area: view;
+    height: 1080px;
+    width: 1920px;
     position: absolute;
     background-color: rgb(61, 60, 60);
     display: grid;
@@ -7,7 +9,7 @@
     grid-template-rows: 60% auto;
     grid-template-areas: "." "announcement";
 }
-.start_animation_in__wrapper {
+.start_enter__animation {
     transform: translateX(1920px);
     animation: wrapper__animation_in 1.5s 0s ease both;
 }
@@ -15,7 +17,7 @@
     from {transform: translateX(1920px) skewX(10deg); background-color: rgb(61, 60, 60);}
     to {transform: translateX(0) skewX(0deg); background-color: rgb(53, 52, 52);}
 }
-.start_animation_out__wrapper {
+.start_leave__animation {
     animation: wrapper__animation_out 1.5s 0s ease both;
 }
 @keyframes wrapper__animation_out {

@@ -1,26 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import './mainView.scss';
+import './mainContent.scss';
 
 const propTypes = {
     artistName: PropTypes.string,
-    displayTime: PropTypes.number.isRequired,
 };
 
 const defaultProps = {
     artistName: 'diesem Künstler',
 };
 
-// todo: add donations
-function MainView({ artistName, displayTime, donatioons }) {
-    const [shouldAnimate, setShouldAnimate] = useState('in');
-    if (shouldAnimate === 'in') {
-        setTimeout(() => {
-            setShouldAnimate('out');
-        }, displayTime - 1000);
-    }
+function MainContent({ artistName, donatioons }) {
     return (
-        <div className={`main__wrapper ${shouldAnimate === 'in' ? 'main_enter__animation' : 'main_leave__animation'}`}>
+        <div>
             <div className="main__text">
                 <p className="main__headline">
                     Gefällt dir die Show?
@@ -37,7 +29,7 @@ function MainView({ artistName, displayTime, donatioons }) {
     );
 }
 
-MainView.propTypes = propTypes;
-MainView.defaultProps = defaultProps;
+MainContent.propTypes = propTypes;
+MainContent.defaultProps = defaultProps;
 
-export default MainView;
+export default MainContent;

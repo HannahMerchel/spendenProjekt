@@ -19,17 +19,9 @@ function StartView({ artistName, displayTime, eventName }) {
         setTimeout(() => {
             setShouldAnimate('out');
         }, displayTime - 1500);
-        return (
-            <div className="start_animation_in__wrapper start__wrapper" style={{ height: '1080px', width: '1920px' }}>
-                <StartOverlay title={eventName}/>
-                <p className="start__announcement">
-                    {`Als nächstes kommt ${artistName}...`}
-                </p>
-            </div>
-        );
     }
     return (
-        <div className="start_animation_out__wrapper start__wrapper" style={{ height: '1080px', width: '1920px' }}>
+        <div className={`start__wrapper ${shouldAnimate === 'in'? 'start_enter__animation' : 'start_leave__animation'}`}>
             <StartOverlay title={eventName}/>
             <p className="start__announcement">
                 {`Als nächstes kommt ${artistName}...`}

@@ -4,16 +4,16 @@
     height: 1080px;
     width: 1920px;
     display: grid;
-    grid-template-rows: 20vh 400px auto;
+    grid-template-rows: 20vh 400px 500px;
     grid-template-columns: 20vh 1300px 600px 20vh;
     grid-template-areas: 
         ". . . ."
-        ". topLeft topRight ."
-        ". bottomLeft bottomRigth .";
+        ". intro callingCode ."
+        ". donations donations .";
 }
 
 .main_calling_code {
-    grid-area: topRight;
+    grid-area: callingCode;
     text-align: center;
     position: absolute;
     color: black;
@@ -25,7 +25,7 @@
     background-size: cover;
 }
 
-.main_content__animation_in {
+.main_enter__animation {
     opacity: 0; 
     transform: translateY(5vw);
     animation: content__animation_in 1s 0s ease both;
@@ -33,7 +33,7 @@
 @keyframes content__animation_in {
     to {opacity: 1; transform: translateY(0);}
 }
-.main_content__animation_out {
+.main_leave__animation {
     opacity: 1;
     animation: content__animation_out 1s 0s ease both;
 }
@@ -47,9 +47,18 @@
     position: relative;
 }
 .main__text {
-    grid-area: topLeft;
+    grid-area: intro;
     margin-top: 35vh;
     margin-left: 15vw;
     font-size: 10vw;
     position: relative;
+}
+
+.main_donations {
+    grid-area: donations;
+    font-size: 13vw;
+}
+.main_donations__entry {
+    margin-left: 5vw;
+    font-size: 10vw;
 }
