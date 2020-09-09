@@ -1,6 +1,6 @@
 import { hot } from 'react-hot-loader/root';
 import React, { PureComponent } from 'react';
-import { Input } from 'chayns-components';
+import { Input, Button } from 'chayns-components';
 import './mobileApp.css';
 
 // mobile view change here.
@@ -27,51 +27,47 @@ class MobileApp extends PureComponent {
 
     // get the value from the input and checks if the input is a digit.
     changeDonationValue(event) {
-        const { donationValue } = this.state;
-        const donation = event.substring(event.length - 1, event.length);
-        const donationQuery = document.querySelector('.donationInput').value;
         this.setState({
-            donationValue: donationValue + +donation,
+            donationValue: event === '' ? 0 : parseInt(event, 10),
         });
-        if (donationQuery === '') {
-            this.setState({
-                donationValue: 0,
-            });
-        }
     }
 
     addDonation(donation) {
-        const donationQuery = document.querySelector('.donationInput').value;
-        document.querySelector('.donationInput').value = Number(donationQuery) + Number(donation);
         this.setState((prevState) => ({
-            donationValue: prevState.donationValue + +donation,
+            donationValue: prevState.donationValue + donation,
         }));
     }
 
     render() {
-        const { artistName } = this.state;
+        const { artistName, donationValue } = this.state;
         return (
             <div className="content__card">
                 <h2 className="text">
                     {`Wie viel möchtest du an ${artistName} spenden?`}
                 </h2>
                 <div className="donationValues">
-                    <button className="button btn" type="button" onClick={() => this.addDonation(1)}>
+                    <Button className="button btn" onClick={() => this.addDonation(1)}>
                         1€
-                    </button>
-                    <button className="button btn" type="button" onClick={() => this.addDonation(2)}>
+                    </Button>
+                    <Button className="button btn" onClick={() => this.addDonation(2)}>
                         2€
-                    </button>
-                    <button className="button btn" type="button" onClick={() => this.addDonation(5)}>
+                    </Button>
+                    <Button className="button btn" onClick={() => this.addDonation(5)}>
                         5€
-                    </button>
-                    <button className="button btn" type="button" onClick={() => this.addDonation(50)}>
+                    </Button>
+                    <Button className="button btn" onClick={() => this.addDonation(50)}>
                         50€
-                    </button>
-                    <Input type="number" className="donationInput" onChange={(event) => this.changeDonationValue(event)} placeholder="Betrag"/>
-                    <button className="button btn" type="button" onClick={this.sendDonation}>
+                    </Button>
+                    <Input
+                        type="number"
+                        className="donationInput"
+                        onChange={(event) => this.changeDonationValue(event)}
+                        value={donationValue === 0 ? '' : donationValue}
+                        placeholder="Betrag"
+                    />
+                    <Button className="button btn" onClick={this.sendDonation}>
                         Ok
-                    </button>
+                    </Button>
                 </div>
                 {/* <p>{donationValue}</p> */}
             </div>

@@ -26,7 +26,7 @@ function StartView({ artistName, displayTime, eventName, image }) {
             className={`start__wrapper ${shouldAnimate === 'in' ? 'start_enter__animation' : 'start_leave__animation'}`}
             style={{ backgroundImage: `url("${image}")` }}
         >
-            <StartOverlay title={eventName} />
+            <StartOverlay title={eventName}/>
             <div className="start_announcement__wrapper">
                 <p className="start__announcement">
                     {`Als nächstes kommt ${artistName}...`}
