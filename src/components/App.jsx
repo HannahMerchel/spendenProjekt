@@ -5,8 +5,8 @@ import MobileApp from './MobileApp/MobileApp.jsx';
 import events from './events';
 
 class App extends PureComponent {
-    render() { // chayns.env && chayns.env.isAndroid && chayns.env.isApp && chayns.env.isDesktop && chayns.env.isTablet
-        if (true) {
+    render() {
+        if (chayns.env && chayns.env.isAndroid && chayns.env.isApp && chayns.env.isDesktop && chayns.env.isTablet) {
             return (
                 <div>
                     <STBApp events={events}/>
