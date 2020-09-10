@@ -23,12 +23,11 @@ class STBApp extends PureComponent {
         this.getCurrentShow();
     }
 
+    // sets currentShow to the first show and starts the view-loop with showStartView
     async getCurrentShow() {
-        await this.setState((prevState) => {
-            return {
-                currentShow: prevState.event.shows[0],
-            }
-        });
+        await this.setState((prevState) => ({
+            currentShow: prevState.event.shows[0],
+        }));
         this.showStartView();
     }
 
@@ -38,6 +37,7 @@ class STBApp extends PureComponent {
         });
     }
 
+    // switches to the start-view and starts a timer to switch to the main-view
     async showStartView() {
         const { event, currentShow, windowHeight, windowWidth } = this.state;
         const newView = (
@@ -53,6 +53,7 @@ class STBApp extends PureComponent {
         await setTimeout(() => this.showMainView(), 8000);
     }
 
+    // switches to the main-view and starts a timer to switch to the end-view
     async showMainView() {
         const { currentShow, windowHeight, windowWidth } = this.state;
         const newView = (
@@ -67,6 +68,7 @@ class STBApp extends PureComponent {
         await setTimeout(() => this.showEndView(), 12000);
     }
 
+    // switches to the end-view and starts a timer to switch back to the start-view
     async showEndView() {
         const { currentShow, windowHeight, windowWidth } = this.state;
         let donationsSum = 0;
