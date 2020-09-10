@@ -25,9 +25,9 @@ class MobileApp extends PureComponent {
     }
 
     // get the value from the input and checks if the input is a digit.
-    changeDonationValue(event) {
+    changeDonationValue(e) {
         this.setState({
-            donationValue: event === '' ? 0 : parseInt(event, 10),
+            donationValue: e === '' ? 0 : parseInt(e, 10),
         });
     }
 
@@ -38,7 +38,7 @@ class MobileApp extends PureComponent {
     }
 
     render() {
-        const { artistName, donationValue } = this.state;
+        const { donationValue, event } = this.state;
         return (
             <div className="content__card">
                 <h2 className="text">
@@ -60,7 +60,7 @@ class MobileApp extends PureComponent {
                     <Input
                         type="number"
                         className="donationInput"
-                        onChange={(event) => this.changeDonationValue(event)}
+                        onChange={(e) => this.changeDonationValue(e)}
                         value={donationValue === 0 ? '' : donationValue}
                         placeholder="Betrag"
                     />
