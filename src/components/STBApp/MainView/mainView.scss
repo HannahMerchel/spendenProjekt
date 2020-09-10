@@ -4,8 +4,8 @@
     height: 1080px;
     width: 1920px;
     display: grid;
-    grid-template-rows: 10vh 425px 500px;
-    grid-template-columns: 45vw 850px 600px 20vw;
+    grid-template-rows: 10vh 385px 500px;
+    grid-template-columns: 45vw 800px 600px 20vw;
     grid-template-areas: 
         ". . . ."
         ". intro intro ."
@@ -19,9 +19,9 @@
     color: black;
     text-align: center;
     margin-top: 5vw;
-    margin-left: 25vw;
-    height: 500px;
-    width: 500px;
+    margin-left: 15vw;
+    height: 550px;
+    width: 550px;
     background-image: url("https://imgur.com/tY5YpSo.png");
     background-size: cover;
 }
