@@ -1,13 +1,16 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .view__wrapper {
     width: 100vw;
-    height: 100vh;
 }
 
 .video__background {
     grid-area: view;
     position: absolute;
-    filter: blur(6px) brightness(0.3) saturate(2.02);
-    size: 200%;
-    width: 100vw;
-    height: 100vw;
+    filter: blur(0.5vw) brightness(0.3) saturate(2.02);
+    width: 110vw;
+    height: 110vh;
 }

@@ -10,16 +10,17 @@ class STBApp extends PureComponent {
         super();
         this.state = {
             windowHeight: 1080,
-            windowWidth: 1920,
             event: events.events,
         };
         this.showStartView = this.showStartView.bind(this);
+        this.useWindowHeight = this.useWindowHeight.bind(this);
         this.showMainView = this.showMainView.bind(this);
         this.switchView = this.switchView.bind(this);
         this.getCurrentShow = this.getCurrentShow.bind(this);
     }
 
     componentDidMount() {
+        this.useWindowHeight();
         this.getCurrentShow();
     }
 
@@ -29,6 +30,15 @@ class STBApp extends PureComponent {
             currentShow: prevState.event.shows[0],
         }));
         this.showStartView();
+    }
+
+    useWindowHeight() {
+        const { windowHeight } = this.state;
+        chayns.addWindowMetricsListener((e) => {
+            if (e !== windowHeight) {
+                this.setState({ windowHeight: e });
+            }
+        }, true);
     }
 
     async switchView(newView) {
@@ -87,10 +97,10 @@ class STBApp extends PureComponent {
     }
 
     render() {
-        const { viewComponents } = this.state;
+        const { viewComponents, windowHeight } = this.state;
         return (
             <div>
-                <div className="view__wrapper">
+                <div className="view__wrapper" style={{ height: `${windowHeight}px` }}>
                     <video
                         className="video__background"
                         poster="https://video.tsimg.space/75507-21103/714d16a5-df16-403f-b6d5-89486f49e216.jpg"

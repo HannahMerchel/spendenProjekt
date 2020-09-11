@@ -4,16 +4,16 @@
 
 .left_slice {
     position: absolute;
-    height: 1041.6vh;
+    height: 1500vh;
     width: 13.02vw;
-    margin-top: -7.8vw;
-    margin-left: 96.35vw;
+    margin-top: -230vh;
+    margin-left: 135vw;
     background-color: white;
     animation: left_slice__animation 1.5s ease 0s both;
 }
 @keyframes left_slice__animation{
     from { width: 0.52vw; transform: rotate(0deg) }
-    to { width: 13.02vw; transform: rotate(-10deg) }
+    to { width: 25vw; transform: rotate(-10deg) }
 }
 
 .event_title__wrapper {
@@ -26,7 +26,7 @@
 }
 @keyframes event_title_wrapper__animation{
     from { width: 0px; margin-left: 100vw }
-    to { width: 41.66vw; margin-left: 57.29vw }
+    to { width: 41.66vw; margin-left: 65vw }
 }
 
 .event__title {
@@ -34,9 +34,9 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding-left: 17vw;
-    padding-top: 9vh;
-    font-size: 15vw;
+    padding-left: 1vw;
+    padding-top: 0vh;
+    font-size: 4vw;
     color: black;
     opacity: 0; 
     transform: translateY(5vw);
