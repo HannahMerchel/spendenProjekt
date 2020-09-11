@@ -32,7 +32,7 @@ function MainView({ artistName, displayTime, donations }) {
         <div className={`main__wrapper ${shouldAnimate === 'in' ? 'main_enter__animation' : 'main_leave__animation'}`}>
             <div className="main__text">
                 <p className="main__headline">
-                    Gefällt dir die Show?
+                    Gefällt Dir die Show?
                 </p>
                 <p>
                     {`Dann spende ${artistName} doch etwas!`}
