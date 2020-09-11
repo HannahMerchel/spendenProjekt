@@ -1,11 +1,10 @@
 .main__wrapper {
     grid-area: view;
     position: absolute;
-    height: 1080px;
-    width: 1920px;
+    
     display: grid;
-    grid-template-rows: 10vh 385px 500px;
-    grid-template-columns: 45vw 800px 600px 20vw;
+    grid-template-rows: 5vh 30vh;
+    grid-template-columns: 18vw 35vw 30vw 30vw;
     grid-template-areas: 
         ". . . ."
         ". intro intro ."
@@ -18,10 +17,10 @@
     position: absolute;
     color: black;
     text-align: center;
-    margin-top: 5vw;
-    margin-left: 15vw;
-    height: 550px;
-    width: 550px;
+    margin-top: 1vw;
+    margin-left: 0.5vw;
+    height: 43.5vh;
+    width: 25vw;
     background-image: url("https://imgur.com/tY5YpSo.png");
     background-size: cover;
 }
@@ -44,24 +43,24 @@
 }
 
 .main__headline {
-    font-size: 13vw;
+    font-size: 3.25vw;
     position: relative;
 }
 .main__text {
     grid-area: intro;
-    margin-top: 35vh;
-    font-size: 13vw;
+    margin-top: 2vh;
+    font-size: 3.25vw;
     position: relative;
 }
 
 .main_donations {
     grid-area: donations;
-    font-size: 13vw;
+    font-size: 4vw;
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
 }
 .main_donations__entry {
     // margin-left: 25vw;
-    font-size: 10vw;
+    font-size: 3vw;
 }
