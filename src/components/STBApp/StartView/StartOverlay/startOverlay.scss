@@ -7,13 +7,13 @@
     height: 1500vh;
     width: 13.02vw;
     margin-top: -220vh;
-    margin-left: 270vh;
+    margin-left: 130vw;
     background-color: white;
     animation: left_slice__animation 1.5s ease 0s both;
 }
 @keyframes left_slice__animation{
     from { width: 0.52vw; transform: rotate(0deg) }
-    to { width: 25vw; transform: rotate(-10deg) }
+    to { width: 50vw; transform: rotate(-10deg) }
 }
 
 .event_title__wrapper {

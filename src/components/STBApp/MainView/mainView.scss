@@ -3,8 +3,8 @@
     position: absolute;
     
     display: grid;
-    grid-template-rows: 5vh 30vh;
-    grid-template-columns: 18vw 35vw 30vw 30vw;
+    grid-template-rows: 5vh 28vh 75vh;
+    grid-template-columns: 20vw 35vw 30vw 30vw;
     grid-template-areas: 
         ". . . ."
         ". intro intro ."
@@ -17,10 +17,8 @@
     position: absolute;
     color: black;
     text-align: center;
-    margin-top: 1vw;
-    margin-left: 0.5vw;
-    height: 43.5vh;
-    width: 25vw;
+    height: 60vh;
+    width: 60vh;
     background-image: url("https://imgur.com/tY5YpSo.png");
     background-size: cover;
 }
