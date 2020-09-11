@@ -1,13 +1,15 @@
 .start__wrapper {
     grid-area: view;
-    height: 100vh;
-    width: 100vw;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
     background-size: cover;
     position: absolute;
     background-color: rgb(61, 60, 60);
     display: grid;
     grid-template-columns: 100vw;
-    grid-template-rows: 46.2vh 64.8vh;
+    grid-template-rows: 75vh 25vh;
     grid-template-areas: "." "announcement";
 }
 .start_enter__animation {
@@ -32,7 +34,7 @@
 }
 .start__announcement {
     margin-left: 9vw;
-    margin-top: 34vh;
+    margin-top: 3vw;
     font-size: 4vw;
     opacity: 0; 
     transform: translateY(5vw);

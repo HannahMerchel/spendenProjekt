@@ -97,19 +97,16 @@ class STBApp extends PureComponent {
     render() {
         const { viewComponents, windowHeight } = this.state;
         return (
-            <div>
-                <div className="view__wrapper" style={{ height: `${windowHeight}px` }}>
-                    <video
-                        className="video__background"
-                        poster="https://video.tsimg.space/75507-21103/714d16a5-df16-403f-b6d5-89486f49e216.jpg"
-                        playsInline
-                        src="https://video.tsimg.space/75507-21103/714d16a5-df16-403f-b6d5-89486f49e216.mp4"
-                        autoPlay
-                        muted
-                        loop
-                    />
-                    {viewComponents}
-                </div>
+            <div className="view__wrapper" style={{ height: `${windowHeight}px` }}>
+                <video
+                    className="video__background"
+                    poster="https://video.tsimg.space/75507-21103/714d16a5-df16-403f-b6d5-89486f49e216.jpg"
+                    playsInline
+                    src="https://video.tsimg.space/75507-21103/714d16a5-df16-403f-b6d5-89486f49e216.mp4"
+                    muted
+                    loop
+                />
+                {viewComponents}
             </div>
         );
     }

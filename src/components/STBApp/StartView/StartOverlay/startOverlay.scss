@@ -6,7 +6,7 @@
     position: absolute;
     height: 1500vh;
     width: 13.02vw;
-    margin-top: -200vh;
+    margin-top: -220vh;
     margin-left: 270vh;
     background-color: white;
     animation: left_slice__animation 1.5s ease 0s both;
@@ -20,7 +20,7 @@
     position: absolute;
     height: 7vw;
     width: 41.66vw;
-    margin-top: 2.6vh;
+    margin-top: 7.5vh;
     background-color: white;
     animation: event_title_wrapper__animation 1.5s ease 1.5s both;
 }
@@ -35,13 +35,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     padding-left: 1vw;
-    padding-top: 0vh;
     font-size: 4vw;
     color: black;
     opacity: 0; 
-    transform: translateY(5vw);
-    animation: title_animation 1s 1.5s ease both;
+    animation: title_animation 2s 1.5s ease both;
 }
 @keyframes title_animation {
-    to {opacity: 1; transform: translateY(0);}
+    to {opacity: 1; }
 }
