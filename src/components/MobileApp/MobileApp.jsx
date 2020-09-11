@@ -20,7 +20,7 @@ class MobileApp extends PureComponent {
     sendDonation() {
         const { donationValue } = this.state;
         if (donationValue !== 0) {
-            chayns.dialog.alert('', 'Danke für deine Spende!');
+            chayns.dialog.alert('', `Danke für deine Spende von ${donationValue}€!`);
         }
     }
 
