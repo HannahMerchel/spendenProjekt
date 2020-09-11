@@ -39,18 +39,17 @@ class STBApp extends PureComponent {
 
     // switches to the start-view and starts a timer to switch to the main-view
     async showStartView() {
-        const { event, currentShow, windowHeight, windowWidth } = this.state;
+        const { event, currentShow } = this.state;
         const newView = (
             <StartView
                 artistName={currentShow.artistName}
                 eventName={event.eventName}
                 image={currentShow.artistImg}
                 displayTime={8000}
-                style={{ width: `${windowWidth}px`, height: `${windowHeight}px` }}
             />
         );
         this.switchView(newView);
-        await setTimeout(() => this.showMainView(), 8000);
+        //await setTimeout(() => this.showMainView(), 8000);
     }
 
     // switches to the main-view and starts a timer to switch to the end-view

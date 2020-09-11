@@ -4,29 +4,29 @@
 
 .left_slice {
     position: absolute;
-    height: 2000px;
-    width: 250px;
-    margin-top: -150px;
-    margin-left: 1850px;
+    height: 1041.6vh;
+    width: 13.02vw;
+    margin-top: -7.8vw;
+    margin-left: 96.35vw;
     background-color: white;
     animation: left_slice__animation 1.5s ease 0s both;
 }
 @keyframes left_slice__animation{
-    from { width: 10px; transform: rotate(0deg) }
-    to { width: 250px; transform: rotate(-10deg) }
+    from { width: 0.52vw; transform: rotate(0deg) }
+    to { width: 13.02vw; transform: rotate(-10deg) }
 }
 
 .event_title__wrapper {
     position: absolute;
-    height: 220px;
-    width: 800px;
-    margin-top: 50px;
+    height: 11.45vh;
+    width: 41.66vw;
+    margin-top: 2.6vh;
     background-color: white;
     animation: event_title_wrapper__animation 1.5s ease 1.5s both;
 }
 @keyframes event_title_wrapper__animation{
-    from { width: 0px; margin-left: 1920px }
-    to { width: 800px; margin-left: 1100px }
+    from { width: 0px; margin-left: 100vw }
+    to { width: 41.66vw; margin-left: 57.29vw }
 }
 
 .event__title {

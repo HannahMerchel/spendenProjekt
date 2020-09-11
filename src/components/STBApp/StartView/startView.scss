@@ -1,21 +1,21 @@
 .start__wrapper {
     grid-area: view;
-    height: 1080px;
-    width: 1920px;
+    height: 100vh;
+    width: 100vw;
     background-size: cover;
     position: absolute;
     background-color: rgb(61, 60, 60);
     display: grid;
-    grid-template-columns: 1920px;
-    grid-template-rows: 500px 700px;
+    grid-template-columns: 100vw;
+    grid-template-rows: 46.2vh 64.8vh;
     grid-template-areas: "." "announcement";
 }
 .start_enter__animation {
-    transform: translateX(1920px);
+    transform: translateX(100vw);
     animation: wrapper__animation_in 1.5s 0s ease both;
 }
 @keyframes wrapper__animation_in {
-    from {transform: translateX(1920px) skewX(10deg); background-color: rgb(61, 60, 60);}
+    from {transform: translateX(100vw) skewX(10deg); background-color: rgb(61, 60, 60);}
     to {transform: translateX(0) skewX(0deg); background-color: rgb(53, 52, 52);}
 }
 .start_leave__animation {
@@ -31,8 +31,8 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
 }
 .start__announcement {
-    margin-left: 250px;
-    margin-top: 350px;
+    margin-left: 13.02vw;
+    margin-top: 18.2vh;
     font-size: 13vw;
     opacity: 0; 
     transform: translateY(5vw);
