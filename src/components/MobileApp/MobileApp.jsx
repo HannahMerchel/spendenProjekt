@@ -46,16 +46,13 @@ class MobileApp extends PureComponent {
                 </h2>
                 <div className="donationValues">
                     <Button className="button btn" onClick={() => this.addDonation(1)}>
-                        1€
-                    </Button>
-                    <Button className="button btn" onClick={() => this.addDonation(2)}>
-                        2€
+                        +1€
                     </Button>
                     <Button className="button btn" onClick={() => this.addDonation(5)}>
-                        5€
+                        +5€
                     </Button>
                     <Button className="button btn" onClick={() => this.addDonation(50)}>
-                        50€
+                        +50€
                     </Button>
                     <Input
                         type="number"
