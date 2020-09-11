@@ -1,16 +1,22 @@
 body {
-    margin: 0;
-    padding: 0;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .view__wrapper {
-    width: 100vw;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .video__background {
-    grid-area: view;
     position: absolute;
     filter: blur(0.5vw) brightness(0.3) saturate(2.02);
-    width: 120vw;
-    height: 120vh;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
 }
