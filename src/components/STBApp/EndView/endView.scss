@@ -1,14 +1,13 @@
 .end__wrapper {
     grid-area: view;
     position: absolute;
-    height: 1080px;
-    width: 1920px;
+    height: 100vh;
+    width: 100vw;
 }
 
 .end__text {
-    margin: 30vw;
-    margin-top: 325px;
-    font-size: 15vw;
+    font-size: 4vw;
+    margin-top: 30vh;
     text-align: center;
 }
 

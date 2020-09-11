@@ -59,18 +59,17 @@ class STBApp extends PureComponent {
             />
         );
         this.switchView(newView);
-        //await setTimeout(() => this.showMainView(), 8000);
+        await setTimeout(() => this.showMainView(), 8000);
     }
 
     // switches to the main-view and starts a timer to switch to the end-view
     async showMainView() {
-        const { currentShow, windowHeight, windowWidth } = this.state;
+        const { currentShow } = this.state;
         const newView = (
             <MainView
                 donations={currentShow.donations}
                 artistName={currentShow.artistName}
                 displayTime={12000}
-                style={{ width: `${windowWidth}px`, height: `${windowHeight}px` }}
             />
         );
         this.switchView(newView);
@@ -79,7 +78,7 @@ class STBApp extends PureComponent {
 
     // switches to the end-view and starts a timer to switch back to the start-view
     async showEndView() {
-        const { currentShow, windowHeight, windowWidth } = this.state;
+        const { currentShow } = this.state;
         let donationsSum = 0;
         currentShow.donations.forEach((entry) => {
             donationsSum += entry.amount;
@@ -89,7 +88,6 @@ class STBApp extends PureComponent {
                 sum={donationsSum}
                 artistName={currentShow.artistName}
                 displayTime={4000}
-                style={{ width: `${windowWidth}px`, height: `${windowHeight}px` }}
             />
         );
         this.switchView(newView);
