@@ -65,7 +65,7 @@ class MobileApp extends PureComponent {
                         placeholder="Betrag"
                     />
                     <Button className="button btn" onClick={this.sendDonation}>
-                        Ok
+                        Spenden
                     </Button>
                 </div>
                 {/* <p>{donationValue}</p> */}
